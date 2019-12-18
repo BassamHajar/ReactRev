@@ -15,6 +15,7 @@ export default class Canvas extends Component {
   }
 
   componentDidMount() {
+    console.log("hi");
     const { canvasWidth, canvasHeight } = this.state.canvasSize;
     this.canvasHexWidth = canvasWidth;
     this.canvasHexHeight = canvasHeight;
