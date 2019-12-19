@@ -7,6 +7,7 @@ export default class Canvas extends Component {
       hexSize: 20
     };
   }
+  // test
 
   componentWillMount() {
     this.setState({
@@ -15,7 +16,6 @@ export default class Canvas extends Component {
   }
 
   componentDidMount() {
-    console.log("hi");
     const { canvasWidth, canvasHeight } = this.state.canvasSize;
     this.canvasHexWidth = canvasWidth;
     this.canvasHexHeight = canvasHeight;
@@ -55,10 +55,18 @@ export default class Canvas extends Component {
     ctx.closePath();
   };
 
+  clickCanvas = e => {
+    console.log("hi");
+    for (let i = 0; i < 3; i++)
+      this.drawHex(this.canvasHex, { x: x + i, y: y + i });
+  };
   render() {
     return (
       <div>
-        <canvas ref={canvasHex => (this.canvasHex = canvasHex)}></canvas>
+        <canvas
+          ref={canvasHex => (this.canvasHex = canvasHex)}
+          onClick={this.clickCanvas}
+        ></canvas>
       </div>
     );
   }
